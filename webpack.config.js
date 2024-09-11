@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
@@ -13,6 +14,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],  // This allows you to import .jsx without specifying the extension
   },
 };
